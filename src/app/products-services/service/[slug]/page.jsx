@@ -1,4 +1,4 @@
-import styles from './styles.scss'
+import style from './styles.module.scss'
 
 export async function fetchBlogPost(slug) {
   'use server';  // 标记为服务端动作
@@ -11,7 +11,7 @@ export default async function BlogPost({ params }) {
   const post = await fetchBlogPost(slug);  // 调用服务端动作获取数据
 
   return (
-    <div className={styles.container}>
+    <div className={style.container}>
       <h1>{post.title}</h1>
       <p>{post.content}</p>
     </div>
