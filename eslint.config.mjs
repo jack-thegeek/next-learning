@@ -1,12 +1,13 @@
 import reactPlugin from 'eslint-plugin-react'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import globals from 'globals'
 
 const eslintConfig = [
     {
-        ignores: ['.next', 'node_modules', 'public']
+        ignores: ['.next', 'node_modules', 'public'],
     },
     {
-        files: ['**/*.{js,cjs,jsx}']
+        files: ['**/*.{js,cjs,jsx}'],
     },
     {
         ...reactPlugin.configs.flat.recommended,
@@ -26,6 +27,8 @@ const eslintConfig = [
             },
         },
     },
+    // https://github.com/prettier/eslint-plugin-prettier
+    eslintPluginPrettierRecommended,
     {
         rules: {
             'react/no-unknown-property': 'off',
