@@ -1,9 +1,8 @@
 'use client'
-
-import React from 'react';
+import {useState} from 'react'
 
 export default function Home() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   return (
       <div>

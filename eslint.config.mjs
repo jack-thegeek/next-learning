@@ -1,14 +1,41 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import reactPlugin from 'eslint-plugin-react'
+import globals from 'globals'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const eslintConfig = [
+    {
+        ignores: ['.next', 'node_modules', 'public']
+    },
+    {
+        files: ['**/*.{js,cjs,jsx}']
+    },
+    {
+        ...reactPlugin.configs.flat.recommended,
+    },
+    {
+        languageOptions: {
+            globals: {
+                ...globals.serviceworker,
+                ...globals.browser,
+            },
+        },
+    },
+    {
+        settings: {
+            react: {
+                version: 'detect',
+            },
+        },
+    },
+    {
+        rules: {
+            'react/no-unknown-property': 'off',
+            'react/react-in-jsx-scope': 'off',
+            'react/prop-types': 'off',
+            'react/jsx-no-target-blank': 'off',
+        },
+    },
+]
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+// console.log(eslintConfig)
 
-const eslintConfig = [...compat.extends("next/core-web-vitals")];
-
-export default eslintConfig;
+export default eslintConfig
