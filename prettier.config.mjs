@@ -1,6 +1,5 @@
 export default {
-    // 一行最多 160 字符
-    printWidth: 160,
+    printWidth: 120,
     // 使用 4 个空格缩进
     tabWidth: 4,
     // 不使用缩进符，而使用空格
@@ -18,7 +17,7 @@ export default {
     // 大括号内的首尾需要空格
     bracketSpacing: true,
     // jsx 标签的反尖括号需要换行
-    jsxBracketSameLine: false,
+    bracketSameLine: false,
     // 箭头函数，只有一个参数的时候，不需要括号
     arrowParens: 'avoid',
     // 每个文件格式化的范围是文件的全部内容
