@@ -9,7 +9,7 @@ export const metadata = {
 export default async function RootLayout({ children, mobile, desktop }) {
     const headersList = await headers()
     const userAgent = headersList.get('user-agent')
-    const isMobile = typeof window !== 'undefined' && /Mobi|Android/i.test(userAgent)
+    const isMobile = /mobi|Android/i.test(userAgent.toLowerCase())
     return (
         <html lang="en">
             <body>
